@@ -13,7 +13,6 @@
 	session.invalidate();// 세션 아웃
 	
 	
-
 	%>
 	<script>
 		location.href = 'main.jsp';
