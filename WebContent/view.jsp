@@ -10,6 +10,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width", initial-scale="1">
 <link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
 
 <title>JSP 게시판 웹 사이트</title>
 </head>
@@ -108,7 +109,7 @@
 						</tr>
 						<tr>
 							<td>내용</td>
-							<td colspan="2" style="min-height:200px; text-align: left;"><%= bbs.getBbsContent() %></td>
+							<td colspan="2" style="min-height:200px; text-align: left;"><%= bbs.getBbsContent().replaceAll(" ","&nbsp;").replaceAll("<","&lt;").replaceAll(">","&gt").replaceAll("\n", "<br>") %></td>
 						</tr>
 					</tbody>
 					
@@ -120,7 +121,7 @@
 				
 				%>
 						<a href="update.jsp?bbsID=<%= bbsID %>" class="btn btn-primary"> 수정 </a>
-						<a href="deleteAction.jsp?bbsID=<%= bbsID %>" class="btn btn-primary"> 삭제 </a>
+						<a onclick="return confirm('정말로 삭제하시겠습니까?')" href="deleteAction.jsp?bbsID=<%= bbsID %>" class="btn btn-primary"> 삭제 </a>
 				<%
 					}
 				%>
